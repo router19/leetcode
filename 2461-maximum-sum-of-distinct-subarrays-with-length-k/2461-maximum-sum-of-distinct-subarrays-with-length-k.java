@@ -7,7 +7,7 @@ class Solution {
 
         while (end < nums.length)
         {
-            while(set.contains(nums[end]) || set.size() == k) {
+            while(set.contains(nums[end])) {
                 set.remove(nums[start]);
                 sum -= nums[start++];
 
@@ -22,6 +22,9 @@ class Solution {
 
             else if(end - start + 1 ==k){
                 maxSum = Math.max(maxSum,sum);
+                sum -= nums[start];
+                set.remove(nums[start]);
+                start++;
                 end++;
             }
         }
